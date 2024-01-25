@@ -20,6 +20,7 @@
         "ratio": "cpp",
         "chrono": "cpp",
         "random": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "ios": "cpp"
     }
 }

@@ -8,6 +8,9 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
+    // 시간 초과 시 작성하면 실행 속도가 높아져 통과 될 수 있음.
+    //  iostream과 stdio의 버퍼를 모두 사용하지 않도록 설정
+    //
     cin >> N;
     cin >> M;
 
