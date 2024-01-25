@@ -19,3 +19,5 @@ int main()
     }
     cout << cnt / 2;
 }
+
+// 와 이거 map 쓰면 시간제한에 안걸리는 듯 합니다. O(logn)
