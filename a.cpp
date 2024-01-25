@@ -1,31 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
-int tc, n;
-string name, type, typeName[30];
+// 4:08
+string s;
+
+string res, odd;
 int main()
 {
-    cin >> tc;
-    for (int i = 0; i < tc; i++)
+    vector<string> v;
+    cin >> s;
+    sort(s.begin(), s.end());
+
+    while (s.length() != 0)
     {
-        map<string, int> mp;
-        cin >> n;
-        for (int i = 0; i < n; i++)
+        if (s[0] != s[1])
         {
-            cin >> name >> type;
-            mp[type] += 1;
+            odd += s[0];
+            s.erase(0, 1);
         }
-        int res = 1;
-        for (auto i : mp)
+        else
         {
-            res *= (i.second + 1);
+            res += s[0];
+            s.erase(0, 2);
         }
-        // combi(-1, b, k)
-        cout << res - 1 << "\n";
+    }
+    if (odd.length() > 1)
+        cout << "I'm Sorry Hansoo";
+    else
+    {
+        cout << res;
+        reverse(res.begin(), res.end());
+        cout << odd << res;
     }
 }
 
-// map을 사용하는 법 잘 알기(자료구조)
-
-// 맵 선언 : map<자료형, 자료형> 변수명;
-// 맵 value에 수 추가 : map[key] +=1;
-// 맵 순회 : for(auto i : map){ 내부에서 i.first로 key, i.second로 value 사용}
+// 하 문자열 sort 사용 시 sort(s.begin(),s.end()) 사용.
+// reverse 사용 시에도 위와 같음.
