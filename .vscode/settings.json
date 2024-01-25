@@ -15,6 +15,11 @@
         "complex": "cpp",
         "valarray": "cpp",
         "iostream": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "limits": "cpp",
+        "ratio": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "algorithm": "cpp"
     }
 }
