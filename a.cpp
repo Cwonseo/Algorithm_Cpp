@@ -1,34 +1,52 @@
 #include <bits/stdc++.h>
 using namespace std;
-string s, ret;
+int N;
+string p, before, after, file[101];
 int main()
 {
-    getline(cin, s);
-    for (int i = 0; i < s.size(); i++)
+    cin >> N;
+    cin >> p;
+
+    for (int i = 0; i < p.size(); i++)
     {
-        if ('a' <= s[i] && s[i] <= 'z')
+        if (p[i] == '*')
         {
-            ret += (char)(s[i] + 13);
-            if (s[i] + 13 > 'z')
-            {
-                ret[i] = (char)('a' + (ret[i] - 'z' - 1));
-            }
+            before = p.substr(0, i);
+            after = p.substr(i + 1, p.size());
+            break;
         }
-        else if (('A' <= s[i] && s[i] <= 'Z'))
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        cin >> file[i];
+    }
+    for (int i = 0; i < N; i++)
+    {
+
+        if (file[i].size() + 1 < p.size())
         {
-            ret += (char)(s[i] + 13);
-            if (s[i] + 13 > 'Z')
-            {
-                ret[i] = (char)('A' + (ret[i] - 'Z' - 1));
-            }
+            cout << "NE "
+                 << "\n";
+            ;
+        }
+        else if (before == file[i].substr(0, before.size()) && (after == file[i].substr(file[i].size() - after.size(), file[i].size())))
+        {
+
+            cout << "DA"
+                 << "\n";
         }
         else
-            ret += s[i];
+        {
+            cout << "NE"
+                 << "\n";
+        }
     }
-    cout << ret;
 }
 
-// - [ ] string 입력받기
-// - [ ] 각 string 아스키코드 + 13하기
-// - [ ] 해독은 아스키코드 -13하기
-// - [ ] 알파벳이 아닌 글자는 적용시키지 않기
+// - [ ] 별표를 알파벳 소문자로 이루어진 문자열이나 빈 문자열로 변환.
+// - [ ] 패턴을 분석하여 * 이전의 string과 이후의 string으로 나눌 수 있다.
+// - [ ] * 이전 스트링의 길이만큼 파일이름의 시작지점부터 동일한지 확인할 수 있다.
+// - [ ] * 이후 스트링의 길이만큼 파일이름의 끝지점부터 동일한지 확인할 수 있다.
+
+// substr에 첫번째 인자만 넣게 되면 끝까지 뽑아줌.
