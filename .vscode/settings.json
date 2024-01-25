@@ -14,6 +14,7 @@
         "__string": "cpp",
         "complex": "cpp",
         "valarray": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "filesystem": "cpp"
     }
 }
