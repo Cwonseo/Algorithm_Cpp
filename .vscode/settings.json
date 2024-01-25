@@ -21,6 +21,18 @@
         "chrono": "cpp",
         "random": "cpp",
         "algorithm": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "__tuple": "cpp",
+        "array": "cpp",
+        "type_traits": "cpp",
+        "forward_list": "cpp",
+        "scoped_allocator": "cpp",
+        "tuple": "cpp",
+        "variant": "cpp",
+        "compare": "cpp",
+        "cstddef": "cpp",
+        "deque": "cpp",
+        "functional": "cpp",
+        "list": "cpp"
     }
 }
