@@ -1,33 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 int N, K;
-int temper[100000], prefixS[100000], sum = 0;
-int maxT = 0;
+int tmp, psum[100000], sum = 0;
+int maxT = -10000004;
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
     cin >> N;
     cin >> K;
-    for (int i = 0; i < N; i++)
+    for (int i = 1; i <= N; i++)
     {
-        cin >> temper[i];
+        cin >> tmp;
+        psum[i] = psum[i - 1] + tmp;
     }
-    for (int i = 0; i < N; i++)
+    for (int i = K; i <= N; i++)
     {
-        sum += temper[i];
-        prefixS[i] = sum;
+        maxT = max(maxT, psum[i] - psum[i - K]);
     }
 
-    for (int i = 0; i <= N - K; i++)
-    {
-
-        if (i == 0)
-        {
-            maxT = prefixS[K - 1];
-        }
-        else if (maxT < prefixS[K + i - 1] - prefixS[i - 1])
-        {
-            maxT = prefixS[K + i - 1] - prefixS[i - 1];
-        }
-    }
     cout << maxT;
 }
