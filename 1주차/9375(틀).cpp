@@ -1,26 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 int tc, n;
-string name, type, typeName[30];
+string name, type;
+map<string, int> mp;
+int res = 1;
 int main()
 {
+    cout << 'in';
     cin >> tc;
     for (int i = 0; i < tc; i++)
     {
-        map<string, int> mp;
         cin >> n;
         for (int i = 0; i < n; i++)
         {
             cin >> name >> type;
             mp[type] += 1;
         }
-        int res = 1;
         for (auto i : mp)
         {
             res *= (i.second + 1);
         }
-        // combi(-1, b, k)
-        cout << res - 1 << "\n";
+        cout << res - 1;
     }
 }
 
