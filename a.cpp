@@ -1,68 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
-// 풀기 전 connected component를 세는 문제이므로 DFS 활용하여 visited로 문제 풀기.
-int dy[] = {-1, 0, 1, 0};
 int dx[] = {0, 1, 0, -1};
-int mp[54][54];
-int visited[54][54];
-int M, N, K, y, x, tc;
+int dy[] = {-1, 0, 1, 0};
+int visited[104][104], mp[104][104];
+int N, res = 0;
 
-void DFS(int y, int x)
+void dfs(int y, int x, int height)
 {
     visited[y][x] = 1;
     for (int i = 0; i < 4; i++)
     {
-        int nx = dx[i] + x;
         int ny = dy[i] + y;
-        if (nx < 0 || ny < 0 || nx >= M || ny >= N || mp[ny][nx] == 0)
+        int nx = dx[i] + x;
+        if (ny < 0 || nx < 0 || ny >= N || nx >= N)
             continue;
         if (visited[ny][nx])
             continue;
-        DFS(ny, nx);
+        if (mp[ny][nx] <= height)
+            continue;
+
+        dfs(ny, nx, height);
     }
 }
-
 int main()
 {
-    cin >> tc;
-    vector<int> result;
-    for (int j = 0; j < tc; j++)
+    cin >> N;
+    for (int i = 0; i < N; i++)
     {
-        cin >> M >> N >> K;
-        int num = 0;
+        for (int j = 0; j < N; j++)
+        {
+            cin >> mp[i][j];
+        }
+    }
+    for (int k = 0; k <= 100; k++)
+    {
+        int active = 0;
+        fill(&visited[0][0], &visited[0][0] + 104 * 104, 0);
         for (int i = 0; i < N; i++)
         {
-            for (int k = 0; k < M; k++)
+            for (int j = 0; j < N; j++)
             {
-                mp[i][k] = 0;
-                visited[i][k] = 0;
-            }
-        }
-
-        for (int i = 0; i < K; i++)
-        {
-            cin >> x >> y;
-            mp[y][x] = 1;
-        }
-
-        for (int i = 0; i < N; i++)
-        {
-            for (int k = 0; k < M; k++)
-            {
-                if (visited[i][k] == 0 && mp[i][k])
+                if (mp[i][j] > k && visited[i][j] == 0)
                 {
-                    DFS(i, k);
-                    num += 1;
+                    dfs(i, j, k);
+                    active += 1;
                 }
             }
         }
-        result.push_back(num);
+        res = max(res, active);
     }
-    for (int i : result)
-    {
-        cout << i << "\n";
-    }
+    cout << res << "\n";
+    return 0;
 }
 
-// 묹법사항
-// fill(배열 처음 주소, 매열 마지막 주소,0)를 이용해 0으로 채우기
+// 틀림.. 답은 나오는데 반례를 찾지 못함.
+
+// 맞왜틀. 반례를 생각해보자..
+
+//  최소 최대 : 예를들어 1에서 10이면  1과 10의 경우에도 체크를 해보자.
+//  없거나 있거나 :
+
+// 반례를 못찾은게 아니라 fill() 사용법 미숙
+//  fill()을 통해 초기화 할때 배열 전체의 범위로 지정해야한다.
