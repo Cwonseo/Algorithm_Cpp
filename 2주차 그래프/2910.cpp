@@ -29,3 +29,8 @@ for(auto i : v){
     cout << i.second << " ";
 }
 }
+
+// 배운점 : sort()함수 쓰기
+// [시작점,끝점)쓰고 compare 함수 만들어서 쓰기
+// compare 함수에서 return a < b 이면 a가 작은 경우 정렬로 생각하여
+// 오름차순 정렬이라고 생각하자.
