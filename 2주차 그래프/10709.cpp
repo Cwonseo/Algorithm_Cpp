@@ -20,7 +20,7 @@ int main()
         {
             int idx = j;
             int cnt = 0;
-            while (idx >= 0)
+            while (idx >= 0) // 해당 문자부터 왼쪽으로 시작지점까지 탐색
             {
                 if (mp[i][idx] == 'c')
                 {
@@ -36,3 +36,4 @@ int main()
         cout << "\n";
     }
 }
+//
