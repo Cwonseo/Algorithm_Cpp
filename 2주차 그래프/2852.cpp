@@ -58,6 +58,9 @@ int main()
          << secondToString(team2Time % 60);
 }
 
-// substr 쓸줄 모름
-// atoi도 쓸줄 모름
+// substr 쓰는 법 학습
+// string.substr(시작지점, 시작지점으로부터 몇칸)
+// atoi 쓰는 법 학습
+// atoi(s.c_str()) -> string형태의 숫자 int로
+// 숫자형태가 아니라면 -1
 // 00:00 형식으로 나오게 할 줄 모름.
