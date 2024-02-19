@@ -35,7 +35,19 @@ arr[0] + arr[1] 이므로
 
   <summary>그래프</summary>
 
+### BFS
+
+### DFS
+
+### 연결리스트
+
+### 분할정복
+
   <summary>완전탐색</summary>
 
+
   <summary>백트래킹</summary>
+
+  ## 모든 경우의 수중 가지 않아도 될 경우의 수는 가지 않는 것.
+
 </details>
