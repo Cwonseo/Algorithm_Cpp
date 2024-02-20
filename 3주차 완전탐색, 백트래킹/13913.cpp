@@ -39,3 +39,5 @@ int main()
     }
     cout << K;
 }
+
+// BFS 돌면서 prev 배열에 해당 노드의 이전 노드를 저장하여 trace한다.
