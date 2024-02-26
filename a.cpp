@@ -1,30 +1,55 @@
 #include <bits/stdc++.h>
 using namespace std;
-int N, M, a[1000], cnt;
-vector<int> ret;
+int L, C, visited[19];
+char chars[19];
+char gather[] = {'a', 'e', 'i', 'o', 'u'};
+string ret;
 void go(int here)
 {
-    if (ret.size() == M)
+    if (ret.size() == L)
     {
-        for (int i : ret)
+        int cnt = 0;
+        for (char c : gather)
         {
-            cout << i << " ";
+            if (ret.find(c) != string::npos)
+            {
+                cnt++;
+            }
         }
-        cout << "\n";
+        if (cnt > 0 && ret.size() - cnt > 1)
+        {
+            for (char c : ret)
+            {
+                cout << c;
+            }
+            cout << "\n";
+        }
         return;
     }
-    for (int i = 1; i <= N; i++)
+    for (int i = here; i < C; i++)
     {
-        ret.push_back(i);
+        if (visited[i])
+            continue;
+        visited[i] = 1;
+        ret.push_back(chars[i]);
         go(i);
+        visited[i] = 0;
         ret.pop_back();
     }
 }
 int main()
 {
-    cin >> N >> M;
+    cin >> L >> C;
+    for (int i = 0; i < C; i++)
+    {
+        cin >> chars[i];
+    }
+    sort(chars, chars + C);
+
     go(0);
 }
-// dfs 완탐 백트래킹 문제
 
-// 완탐으로 선택하고 안하고 풀 때는 끝까지 간 다음에 로직 실행하기.
+// 정렬 먼저 하고
+//  dfs 돌려서  size가 L과 같아지면 출력하고 return;
+
+// 최소 한개의 모음과 두개의 자음을 찾아라.
