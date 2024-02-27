@@ -54,11 +54,4 @@ int main(){
     vector<int> v;
     combi(-1,v);
     cout << ret.size();
-
-    // for(vector<int> i : ret){
-    //     for(int j : i){
-    //         cout << j<<" ";
-    //     }
-    //     cout << "\n";
-    // }
 }
