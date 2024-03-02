@@ -39,7 +39,6 @@ void go(){
     }
 
 }
-
 int main(){
     cin >> N >> K;
     go();
